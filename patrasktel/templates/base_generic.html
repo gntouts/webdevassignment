@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}{% endblock %}
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment for GK802">
+    <meta name="keywords" content="HTML,XHTML,CSS">
+    <meta name="Author" content="George Ntoutsos">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://raw.githubusercontent.com/gntouts/urbanBus/master/media/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://raw.githubusercontent.com/gntouts/urbanBus/master/media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"
+        href="https://raw.githubusercontent.com/gntouts/urbanBus/master/media/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://raw.githubusercontent.com/gntouts/urbanBus/master/media/favicon-16x16.png">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 5em;
+        }
+
+        footer {
+            margin-top: 5em;
+            padding-top: 1em;
+            background-color: #222;
+            color: rgb(255, 255, 255);
+        }
+
+        .card {
+            margin: auto;
+            margin-bottom: 2vw;
+        }
+
+        #topBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            outline: none;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-right">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="nav-link" href="/">
+                    <img src="https://raw.githubusercontent.com/gntouts/urbanBus/master/media/logo-white.png"
+                        width="200vw" alt="">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    {% block topmenu %}{% endblock %}
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <button type="button" class="btn btn-primary btn-dark btn-lg" onclick="topFunction()" id="topBtn"
+        title="Go to top">Top</button>
+    <!-- CONTENT -->
+
+
+    <div class="container-fluid">
+        {% block content %}{% endblock %}
+    </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-4" style="padding-top: 0.5vw;">
+                    <p class="text-center"><a class="link-unstyled" style="color:rgb(255, 255, 255);"
+                            href="/routes">Routes</a></p>
+                    <p class="text-center"><a class="link-unstyled" style="color:rgb(255, 255, 255);"
+                            href="/tickets">Tickets</a></p>
+                    <p class="text-center"><a class="link-unstyled" style="color:rgb(255, 255, 255);"
+                            href="/">Homepage</a></p>
+                </div>
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li><img src="https://raw.githubusercontent.com/gntouts/urbanBus/master/media/logo-footer.png"
+                                class="img-rounded img-responsive" style="max-width: 10vw; margin: auto;" alt=""></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-4" style="padding-top: 0.5vw;">
+                    <p class="text-center"><i class="fas fa-map-marker-alt"
+                            style="padding-right:1em; color:rgb(255, 255, 255);"></i><a
+                            style="color:rgb(255, 255, 255);" href=" https://maps.google.com/maps?q={{contact.address}}"
+                            target="_blank" rel="noopener noreferrer">{{contact.address}}</a></p>
+                    <p class="text-center"><i class="fas fa-envelope"
+                            style="padding-right:1em; color:rgb(255, 255, 255);"></i>
+                        <a class="link-unstyled" style="color:rgb(255, 255, 255);" href="mailto:{{contact.email}}">
+                            {{contact.email}}</a></p>
+                    <p class="text-center"><i class="fas fa-phone" style="padding-right:1em;"></i><a
+                            class="lik-unstyled" style="color:rgb(255, 255, 255);"
+                            href="tel:{{contact.phone}}">{{contact.phone}}</a>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <p class="text-center small" style="margin-top: 0; padding-top: 0; color:rgb(255, 255, 255);">© Made by
+                    <a class="lik-unstyled" style="color:rgb(193, 227, 255);" href="https://github.com/gntouts"
+                        target="_blank">me</a></p>
+            </div>
+        </div>
+
+
+    </footer>
+    <script>
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+                document.getElementById("topBtn").style.display = "block";
+            } else {
+                document.getElementById("topBtn").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>

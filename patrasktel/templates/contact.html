@@ -1,0 +1,70 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <h3>Contact us</h3>
+    <div class="row">
+
+        <div class="col-sm-6" style="margin-bottom: 15vw;">
+            <ul class="list-unstyled">
+                <br><br>
+
+                <li class="text-center">
+                    <h4>Address</Address>:</h4>
+                </li>
+                <li class="text-center"><i class="fas fa-map-marker-alt"
+                        style="padding-right:1em; color:rgb(0, 0, 0);"></i><strong>{{contact.address}}</strong>
+                </li><br>
+                <li class="text-center">
+                    <h4>e-mail:</h4>
+                </li>
+                <li class="text-center"><i class="fas fa-envelope" style="padding-right:1em; color:rgb(0, 0, 0);"></i>
+                    <a class="link-unstyled" style="color:rgb(0, 78, 102);" href="mailto:mail@urbanbus.gr">
+                        <strong>{{contact.email}}</strong></a>
+                </li>
+                <br>
+                <li class="text-center">
+                    <h4>Phone:</h4>
+                </li>
+                <li class="text-center"><i class="fas fa-phone"
+                        style="padding-right:1em;"></i><strong>{{contact.phone}}</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <div class="map-responsive"><iframe width="450" height="450" src="{{contact.get_url}}" frameborder="0"
+                    scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+            <style>
+                .map-responsive {
+                    overflow: hidden;
+                    padding-bottom: 56.25%;
+                    position: relative;
+                    height: 0;
+                }
+
+                .map-responsive iframe {
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                }
+            </style>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block title %}<title>Contact us - Urban Bus</title>{% endblock %}
+
+{% block topmenu %}
+<li><a href="/">Home</a></li>
+<li><a href="/routes">Routes</a></li>
+<li><a href="/tickets">Tickets</a></li>
+<li><a href="/about">About us</a></li>
+<li><a href="/announcements">Announcements</a></li>
+<li class="active"><a href="/contact">Contact us</a></li>
+{% endblock %}

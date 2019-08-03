@@ -1,0 +1,76 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <h3> Tickets</h3>
+    <div class="row text-center">
+        <h2>Zone A</h2>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="thumbnail">
+                <img style="max-width: 15vw;" src="{{an.source}}" alt="green-ticket">
+                <div class="caption text-center">
+                    <h3>{{an.value}}€</h3>
+                    <p>Ticket for routes in zone {{an.zone|capfirst}}</p>
+                    <p><strong>Suitable for: {{an.customer}}</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="thumbnail">
+                <img style="max-width: 15vw;" src="{{ar.source}}" alt="blue-ticket">
+                <div class="caption text-center">
+                    <h3>{{ar.value}}€</h3>
+                    <p>Ticket for routes in zone {{ar.zone|capfirst}}</p>
+                    <p><strong>Suitable for: {{ar.customer}}</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <h2>Zone B</h2>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="thumbnail">
+                <img style="max-width: 15vw;" src="{{bn.source}}" alt="orange-ticket">
+                <div class="caption text-center">
+                    <h3>{{bn.value}}€</h3>
+                    <p>Ticket for routes in zone {{bn.zone|capfirst}}</p>
+                    <p><strong>Suitable for: {{bn.customer}}</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="thumbnail">
+                <img style="max-width: 15vw;" src="{{br.source}}" alt="brown-ticket">
+                <div class="caption text-center">
+                    <h3>{{br.value}}€</h3>
+                    <p>Ticket for routes in zone {{br.zone|capfirst}}</p>
+                    <p><strong>Suitable for: {{br.customer}}</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% block title %}<title>Tickets - Urban Bus</title>{% endblock %}
+
+{% block topmenu %}
+<li><a href="/">Home</a></li>
+<li><a href="/routes">Routes</a></li>
+<li class="active"><a href="/tickets">Tickets</a></li>
+<li><a href="/about">About us</a></li>
+<li><a href="/announcements">Announcements</a></li>
+<li><a href="/contact">Contact us</a></li>
+{% endblock %}

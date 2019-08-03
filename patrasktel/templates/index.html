@@ -1,0 +1,94 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid text-center" style="background-color:#333; color: white; padding: 0.5vw;">
+        <h2>Patras' Bus</h2><br>
+        <p>Welcome to Patras' Bus, the efficient and reliable choice for trasportation in Patras.</p>
+    </div>
+</div>
+
+<div class="container text-center">
+    <img src="https://urban-bus.netlify.com/media/logo-black.png" class="rounded mx-auto img"
+        style="max-width: 40%; height: auto; margin-bottom: 3vh;" alt="Image Placeholder">
+    <hr>
+    <div class="row mx-auto">
+        <div class=" col-sm-4">
+            <div class="card text-center" style="width: 10vw;">
+                <img style="width: 8vw;" class="card-img-top"
+                    src="https://urban-bus.netlify.com/media/list-alt-solid.svg" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Routes</h3>
+                    <p class="card-text">View details about route stops and timetables</p>
+                    <a href="/routes" class="btn btn-primary" style="margin: auto;">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center" style="width: 10vw;">
+                <img class="card-img-top text-center" style="width: 10vw;"
+                    src="https://urban-bus.netlify.com/media/ticket-alt-solid.svg" alt="ticket-icon">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Tickets</h3>
+                    <p class="card-text">View details about ticket prices
+                    </p>
+                    <a href="/tickets/" class="btn btn-primary" style="margin: auto;">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center" style="width: 10vw;">
+                <img style="width: 7.5vw;" class=" card-img-top text-center"
+                    src="https://urban-bus.netlify.com/media/phone-square-solid.svg" alt="list-icon">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Contact us</h3>
+                    <p class="card-text">Contact us for further information
+                    </p>
+                    <a href="/contact" class="btn btn-primary" style="margin: auto;">Click here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <hr>
+    <div class="row content mx-auto text-center">
+
+        <p class="h3">Latest announcement</p>
+        <br>
+        <div class="col-6">
+
+            <p class="h4 text-center">
+
+                {{announcement.heading}}
+            </p>
+            <p class="text-center small">{{announcement.date}}</p>
+            <p class="h5 text-center" style="margin-bottom: 0.1vh;">{{announcement.body}}</p>
+            <p class="h5 text-center" style="margin-bottom: 0.5vh;">-{{announcement.author}}</p>
+            <hr>
+            <a href="/announcements/" class="btn btn-primary" style="margin: auto; margin-bottom: 2vh;">View
+                all</a>
+        </div>
+
+
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="col-3"></div>
+</div>
+{% endblock %}
+
+{% block topmenu %}
+
+<li class="active"><a href="/">Home</a></li>
+<li><a href="/routes">Routes</a></li>
+<li><a href="/tickets">Tickets</a></li>
+<li><a href="/about">About us</a></li>
+<li><a href="/announcements">Announcements</a></li>
+<li><a href="/contact">Contact us</a></li>
+{% endblock %}
+
+{% block title %}<title>Urban Bus</title>{% endblock %}

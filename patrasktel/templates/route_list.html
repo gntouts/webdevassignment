@@ -1,0 +1,83 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <h3>Routes</h3>
+    <hr>
+    <div class="row content">
+        <div class="panel-group" id="accordion">
+            {% for route in route_list %}
+            <p class="h4" style="padding-left: 0.8vw">{{ route.name }}</p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#{{ route.pk }}">
+                            <strong>Stops</strong></a>
+                    </h4>
+                </div>
+            </div>
+            <div id="{{ route.pk }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Stop name</th>
+                            </tr>
+                            {% for stop in route.stop_set.all %}
+                            <tr>
+                                <td>
+                                    <h4 style="display:inline">{{ stop.name}} </h5> <small>&nbsp&nbsp(Ζώνη:
+                                            {{stop.zone|capfirst}})</small>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#{{ route.pk }}h">
+                            <strong>Timetable</strong></a>
+                    </h4>
+                </div>
+            </div>
+            <div id="{{ route.pk }}h" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Departure</th>
+                            </tr>
+                            {% for schedule in route.schedule_set.all %}
+                            {% comment %} {% if stop.route == route.name %} {% endcomment %}
+                            <tr>
+                                <td>
+                                    <h4 style="display:inline">{{ schedule.start_time}} </h4>
+                                </td>
+                            </tr>
+                            {% comment %} {% endif %} {% endcomment %}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block title %}<title>Routes - Urban Bus</title>{% endblock %}
+
+{% block topmenu %}
+
+<li><a href="/">Home</a></li>
+<li class="active"><a href="/routes">Routes</a></li>
+<li><a href="/tickets">Tickets</a></li>
+<li><a href="/about">About us</a></li>
+<li><a href="/announcements">Announcements</a></li>
+<li><a href="/contact">Contact us</a></li>
+{% endblock %}

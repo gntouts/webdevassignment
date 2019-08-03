@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h3>Announcements</h3>
+
+    <div class="row content">
+        <div class="panel-group" id="accordion">
+
+            {% for announcement in announcement_list %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title text-center">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#{{ announcement.pk }}anno">
+                            {{announcement.heading}}</a>
+                    </h2>
+                    <p class="text-center small">{{announcement.date}}</p>
+                </div>
+
+                <div id="{{ announcement.pk }}anno" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p class="text-center">{{announcement.body}}<br>{{announcement.author}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block topmenu %}
+<li><a href="/">Home</a></li>
+<li><a href="/routes">Routes</a></li>
+<li><a href="/tickets">Tickets</a></li>
+<li><a href="/about">About us</a></li>
+<li class="active"><a href="/announcements">Announcements</a></li>
+<li><a href="/contact">Contact us</a></li>
+{% endblock %}
+{% block title %}<title>Announcements - Urban Bus</title>{% endblock %}
